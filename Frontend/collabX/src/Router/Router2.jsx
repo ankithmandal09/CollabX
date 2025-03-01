@@ -1,10 +1,10 @@
 import React from 'react'
 import { Routes,Route,Navigate } from 'react-router-dom' 
-import Login from '../Components/Login'
-import Register from '../Components/Register'
-import Profile from '../Components/Profile'
-import Collaborate from '../Components/Collaborate'
-import Skills from '../Components/Skills'
+import Login from '../Component/Login'
+import Register from '../Component/Register'
+import Profile from '../Component/Profile'
+import Collaborate from '../Component/Collaborate'
+import Skills from '../Component/Skills'
 
 function Router2() {
     return (
