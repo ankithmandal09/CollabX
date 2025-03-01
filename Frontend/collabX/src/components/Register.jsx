@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect,useState } from 'react';
 
+
 const Register = () => {
   const [credentials, setCredentials] = useState({
     username: '',
@@ -75,8 +76,8 @@ const Register = () => {
         skills: formData.skills
       };
 
-      const response = await axios.post('https://hackathon-form-data-default-rtdb.asia-southeast1.firebasedatabase.app/.json', formPayload);
-      // const response = await axios.post(`https://github.com/ankithmandal09/CollabX/blob/bharathraj/Backend/routes/profile.route.js/${formData.username}`,formPayload);
+      // const response = await axios.post('https://hackathon-form-data-default-rtdb.asia-southeast1.firebasedatabase.app/.json', formPayload);
+      const response = await axios.post(`https://github.com/ankithmandal09/CollabX/blob/bharathraj/Backend/routes/profiles.route.js/${formData.username}`,formPayload);
       console.log(response);
     } catch (error) {
       console.error(error);
