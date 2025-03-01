@@ -79,7 +79,9 @@ const deletePost = async (req, res) => {
         if(!post.userId.equals(user._id)){
             return res.status(403).json({message: "You are not authorized to delete this post."});
         }
-        await Archive.create(post);
+        const archive = post.toObject();
+        delete archive._id;
+        await Archive.create(archive);
         await Post.deleteOne({_id: post._id});
         res.status(200).json({message: "Post successfully deleted."});
     } catch (error) {
