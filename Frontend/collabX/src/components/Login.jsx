@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle,faFacebook, faApple } from "@fortawesome/free-brands-svg-icons";
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 // import logo from "../assets/logo.png"
 
+
 function Login() {
+
+  // async function getData() {
+  //   try {
+  //     const response = await axios.get('https://github.com/ankithmandal09/CollabX/blob/bharathraj/Backend/routes/collabx.route.js');
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+  // useEffect(() => {
+  //   getData()
+  // }, [])
+  
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100 py-10 login">
         <div className="w-full sm:w-3/6 md:w-1/2 lg:w-1/3 xl:w-1/4 bg-white p-8 rounded-3xl shadow-lg">
