@@ -24,6 +24,10 @@ const PostSchema = mongoose.Schema({
             required: true
         }
     }],
+    collaborators: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: "User"
+    },
     createdAt: {
         type: Date,
         default: new Date()

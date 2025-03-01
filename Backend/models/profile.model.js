@@ -26,9 +26,27 @@ const ProfileSchema = mongoose.Schema({
         enum: ["male", "female", "others"],
         required: true
     },
+    birthday: {
+        type: Date,
+        required: false
+    },
+    nationality: {
+        type: String,
+        required: false
+    },
     profilePicture: {
         type: String,
         required: false
+    },
+    bio: {
+        type: String,
+        maxlength: [1000, "Bio cannot exceed 1000 characters."],
+        required: false
+    },
+    skills: {
+        type: [String],
+        required: false,
+        enum: ["JavaScript", "HTML", "CSS", "React", "Redux", "Node", "Express", "Mongo DB", "System Design"]
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,

@@ -1,4 +1,6 @@
 const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
 require("dotenv").config();
 
 const connection = require("./config/db.js");
@@ -12,6 +14,11 @@ const PORT = process.env.PORT;
 const app = express();
 
 app.use(express.json());
+app.use(cors({
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE"
+}));
+app.use(helmet());
 
 app.get("/", (req, res) => {
     res.status(200).json({message: "Healthy"});
