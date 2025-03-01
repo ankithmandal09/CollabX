@@ -12,7 +12,7 @@ const Comment = ({ username, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-  bg-opacity-50 backdrop-blur-sm transition-opacity">
+    <div className="fixed inset-0 flex items-center justify-center bg-grey-700">
       <div className="bg-gray-900 text-white p-6 shadow-lg rounded-2xl w-full max-w-md relative">
         <button
           onClick={onClose}
@@ -49,7 +49,7 @@ const Comment = ({ username, onClose }) => {
         />
         <button
           onClick={addComment}
-          className="w-full mt-2 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md transition duration-300"
+          className="w-full mt-2 bg-[#1CC896]  cursor-pointer text-white py-2 rounded-md transition duration-300"
         >
           Post Comment
         </button>

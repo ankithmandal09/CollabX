@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white p-6 text-center mt-10">
+    <footer className="bg-gray-900 text-white p-10 text-center mt-10 rounded-t-4xl">
       <p className="text-sm">
         &copy; {new Date().getFullYear()} CollabX. All rights reserved.
       </p>

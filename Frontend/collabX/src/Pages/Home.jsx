@@ -123,70 +123,72 @@ function HomePage() {
   };
 
   return (
-    <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
-      {dummyPosts.map((post) => (
-        <div
-          key={post.id}
-          className="bg-white border rounded-lg w-120 p-4 shadow-lg mb-6"
-        >
-          <div className="flex justify-between items-center mb-2">
-            <span className="font-semibold">{post.username}</span>
-            <span className="text-gray-500 text-sm">{post.location}</span>
-          </div>
-          <img
-            src={post.image}
-            alt="Post"
-            className="w-full h-100 object-cover rounded-md"
-          />
-          <div className="flex justify-between items-center mt-3">
-            <div className="flex space-x-4">
-              <button onClick={() => toggleLike(post.id)}>
-                <Heart
+    <div className="bg-gray-700 ">
+      <div className="flex flex-col items-center p-6 min-h-screen ">
+        {dummyPosts.map((post) => (
+          <div
+            key={post.id}
+            className="bg-white border rounded-lg w-150 p-4 shadow-lg mb-6"
+          >
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-semibold">{post.username}</span>
+              <span className="text-gray-500 text-sm">{post.location}</span>
+            </div>
+            <img
+              src={post.image}
+              alt="Post"
+              className="w-full h-100 object-cover"
+            />
+            <div className="flex justify-between items-center mt-3">
+              <div className="flex space-x-4">
+                <button onClick={() => toggleLike(post.id)}>
+                  <Heart
+                    className={`text-xl ${
+                      likedPosts.includes(post.id)
+                        ? "text-red-500 fill-current"
+                        : ""
+                    }`}
+                  />
+                </button>
+                <button onClick={() => openComments(post)}>
+                  <MessageCircle className="text-xl" />
+                </button>
+              </div>
+              <button onClick={() => toggleSave(post.id)}>
+                <Bookmark
                   className={`text-xl ${
-                    likedPosts.includes(post.id)
-                      ? "text-red-500 fill-current"
+                    savedPosts.includes(post.id)
+                      ? "text-blue-500 fill-current"
                       : ""
                   }`}
                 />
               </button>
-              <button onClick={() => openComments(post)}>
-                <MessageCircle className="text-xl" />
-              </button>
             </div>
-            <button onClick={() => toggleSave(post.id)}>
-              <Bookmark
-                className={`text-xl ${
-                  savedPosts.includes(post.id)
-                    ? "text-blue-500 fill-current"
-                    : ""
-                }`}
-              />
-            </button>
+            <p className="mt-2 text-sm font-semibold">{post.likes} likes</p>
+            <p className="text-gray-600 text-sm">
+              View all {post.comments} comments
+            </p>
           </div>
-          <p className="mt-2 text-sm font-semibold">{post.likes} likes</p>
-          <p className="text-gray-600 text-sm">
-            View all {post.comments} comments
-          </p>
-        </div>
-      ))}
+        ))}
 
-      {showComments && selectedPost && (
-        <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md"
-          onClick={closeModal}
-        >
+        {showComments && selectedPost && (
           <div
-            className="bg-gray-900 text-white p-6 rounded-xl w-full max-w-md relative shadow-lg"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md"
+            onClick={closeModal}
           >
-            <button
-              onClick={closeModal}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white text-xl"
-            ></button>
-            <Comment username={selectedPost.username} onClose={closeModal} />
+            <div
+              className="bg-gray-900 text-white p-6 rounded-xl w-full max-w-md relative shadow-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeModal}
+                className="absolute top-3 right-3 text-gray-400 hover:text-white text-xl"
+              ></button>
+              <Comment username={selectedPost.username} onClose={closeModal} />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

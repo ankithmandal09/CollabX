@@ -22,9 +22,11 @@ function Skills() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 py-10">
+    <div className="flex items-center justify-center min-h-screen bg-gray-700 py-10">
       <div className="w-full sm:w-3/6 md:w-1/2 lg:w-1/3 xl:w-1/4 bg-white p-8 rounded-3xl shadow-lg">
-        <h1 className="text-3xl font-semibold text-center text-gray-700">Your Skills</h1>
+        <h1 className="text-3xl font-semibold text-center text-gray-700">
+          Your Skills
+        </h1>
         <p className="text-center text-gray-600 mt-2">
           Share and manage the skills you want to offer the community.
         </p>

@@ -75,7 +75,7 @@ function Profile() {
     };
   console.log(userDetails)
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100 profile">
+      <div className="flex justify-center items-center min-h-screen bg-gray-700 profile">
         <div className="flex flex-col sm:flex-row bg-white rounded-3xl shadow-xl max-w-6xl w-full p-8 gap-8">
           <div className="flex flex-col items-center sm:items-start gap-8 sm:w-1/3">
             <div className="w-full flex justify-between items-center">
