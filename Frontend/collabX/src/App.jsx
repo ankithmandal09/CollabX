@@ -5,7 +5,7 @@ function App() {
   return (
     <>
     <Router/>
-    <Router2/>
+    {/* <Router2/> */}
   </> 
   )
 }
