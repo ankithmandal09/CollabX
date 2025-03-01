@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="p-6 flex justify-between items-center">
-      <div className="ml-4">
+    <nav className="p-6 flex justify-between items-center flex-wrap bg-blue-200 ">
+      <div className="ml-4 ">
         <img
           className="h-10 w-auto ml-10 "
           src="src/assets/logo.png"
@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
       <div className="mr-4">
         <img
-          className="h-10 w-10 rounded-full mr-10"
+          className="h-10 w-10 rounded-full mr-10 cursor-pointer"
           src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
           alt="Profile"
         />

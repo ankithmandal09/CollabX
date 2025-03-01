@@ -25,8 +25,8 @@ const NewPost = () => {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10 p-6  text-white shadow-lg rounded-lg w-[70%] max-w-2xl mx-auto">
-      <div className=" w-full ">
+    <div className="flex flex-col items-center mt-10 p-6  text-white shadow-lg rounded-lg w-[60%] max-w-2xl mx-auto">
+      <div className="w-full ">
         <h2 className="text-xl font-semibold text-center mb-4 text-black">
           Create a new post
         </h2>

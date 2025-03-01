@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Heart, MessageCircle, Bookmark } from "lucide-react";
-import Comment from "../Pages/Comment";
+import Comment from "./Comment";
 
 const dummyPosts = [
   {

@@ -1,27 +1,24 @@
-import React from 'react'
-import Navbar from '../Component/Navbar';
-import {Routes, Route } from "react-router-dom";
-import { Home } from 'lucide-react';
-import NewPost from '../Pages/NewPost';
-import Login from '../Pages/Login';
-import Comment from '../Pages/Comment';
-import HomePage from '../Component/HomePage';
-import Footer from "../Component/Footer"
+import React from "react";
+import Navbar from "../component/Navbar";
+import { Routes, Route, Navigate } from "react-router-dom";
+import NewPost from "../pages/NewPost";
+import Comment from "../pages/Comment";
+import Footer from "../component/Footer";
+import HomePage from "../pages/Home";
 
 const Router = () => {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="" element={<Navigate to="/home"/>} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/new-post" element={<NewPost />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/comments" element={<Comment />} />
       </Routes>
-      <HomePage />
       <Footer />
     </div>
   );
-}
+};
 
-export default Router
+export default Router;
