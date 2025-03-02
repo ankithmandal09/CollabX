@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.login{
+    background-color: #373743;
+}
+
+/* *{
+    color: #1CC896;
+} */
+
+/* .emailInput,.passwordInput{
+    color: black;
+} */
