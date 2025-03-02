@@ -4,22 +4,54 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle,faFacebook, faApple } from "@fortawesome/free-brands-svg-icons";
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import { useState } from "react";
+import { useAuth } from '../Context/AuthContext';
 // import logo from "../assets/logo.png"
 
 
 function Login() {
+  const [usersData, setUsersData] = useState([])
+  const [userCheck, setuserCheck] = useState({username:"",password:''})
+  const { username, password, login, logout } = useAuth();
+  
+  async function getData() {
+    try {
+      const response = await axios.get('https://hackathonfeb2025users-default-rtdb.asia-southeast1.firebasedatabase.app/.json');
+      let arr = [];
+      let obj = {}
+      Object.entries(response.data).forEach(e => {
+        obj = {
+          id:e[0],
+          username:e[1].username,
+          password:e[1].password
+        }
+        arr.push(obj)
+      });
+      setUsersData(arr);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
 
-  // async function getData() {
-  //   try {
-  //     const response = await axios.get('https://github.com/ankithmandal09/CollabX/blob/bharathraj/Backend/routes/collabx.route.js');
-  //     console.log(response);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-  // useEffect(() => {
-  //   getData()
-  // }, [])
+  function loginCheck(e){
+    e.preventDefault()
+    for (let i = 0; i < usersData.length; i++) {
+      if (usersData[i].username === userCheck.username && usersData[i].password === userCheck.password) {
+        login(userCheck.username, userCheck.password);
+        alert('Logged in successfully');
+        return;
+      }
+    }
+
+    alert('Invalid username or password');
+  };
+
+  function inputValue(e){
+    setuserCheck({...userCheck,[e.target.name]:e.target.value})
+  }
+  useEffect(() => {
+    getData()
+  }, [])
   
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100 py-10 login">
@@ -32,20 +64,22 @@ function Login() {
             </Link>
           </p>
   
-          <form id="login-form" className="mt-6">
+          <form id="login-form" className="mt-6" onSubmit={loginCheck}>
             <input
               className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1CC896] text-gray-700"
               type="text"
-              name="loginEmail"
+              name="username"
               id="loginEmail"
               placeholder="Email or username"
+              onChange={inputValue}
             />
             <input
               className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1CC896] text-gray-700"
               type="password"
-              name="loginPassword"
+              name="password"
               id="loginPassword"
               placeholder="Password"
+              onChange={inputValue}
             />
             <button
               type="submit"

@@ -1,8 +1,10 @@
 import React from 'react'
 import "../Styles/Navbar.css"
 import { Link } from "react-router-dom";
+import { useAuth } from '../Context/AuthContext';
 
 const Navbar = () => {
+  const { username, password, logout } = useAuth();
   return (
     <nav className="p-6 flex justify-between items-center flex-wrap bg-blue-200 ">
       <div className="ml-4 ">
@@ -23,6 +25,19 @@ const Navbar = () => {
           Login
         </Link>
       </div>
+
+      <div>
+      {username ? (
+        <div>
+          <h1>Welcome, {username}!</h1>
+          <p>Your password: {password}</p>
+        </div>
+      ) : (
+        <h1>Please log in</h1>
+      )}
+    </div>
+      <button onClick={logout}>logout</button>
+
       <div className="mr-4">
         <img
           className="h-10 w-10 rounded-full mr-10 cursor-pointer"
