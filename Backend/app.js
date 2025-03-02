@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 require("dotenv").config();
 
+const logger = require("./middlewares/logger.middleware.js");
 const connection = require("./config/db.js");
 const CollabXRouter = require("./routes/collabx.route.js");
 const UserRouter = require("./routes/user.route.js");
@@ -14,6 +15,7 @@ const PORT = process.env.PORT;
 const app = express();
 
 app.use(express.json());
+app.use(logger);
 app.use(cors({
     "origin": "*",
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE"
