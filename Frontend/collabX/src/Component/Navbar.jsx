@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from '../Context/AuthContext';
 
 const Navbar = () => {
-  const { username, password, logout } = useAuth();
+  const { username, password, logout, id } = useAuth();
   return (
     <nav className="p-6 flex justify-between items-center flex-wrap bg-blue-200 ">
       <div className="ml-4 ">
@@ -38,6 +38,7 @@ const Navbar = () => {
     </div>
       <button onClick={logout}>logout</button>
 
+      <Link to="/profile">
       <div className="mr-4">
         <img
           className="h-10 w-10 rounded-full mr-10 cursor-pointer"
@@ -45,6 +46,7 @@ const Navbar = () => {
           alt="Profile"
         />
       </div>
+      </Link>
     </nav>
   );
       
