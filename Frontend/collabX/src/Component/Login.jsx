@@ -17,7 +17,8 @@ function Login() {
     e.preventDefault();
   
     try {
-      const response = await axios.get(`http://localhost:8090/users/${userCheck.username}`);
+      // const response = await axios.get(`http://localhost:8090/users/${userCheck.username}`);
+      const response = await axios.get(`https://collabx-1-backend.onrender.com/users/${userCheck.username}`);
   
       if (response.data) {
         const id = response.data._id;
