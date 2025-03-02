@@ -54,6 +54,7 @@ function Collaborate() {
 
   return (
     <>
+      <div className="flex items-center justify-center min-h-screen bg-gray-700 py-10">
       <div className="text-center mb-6 flex justify-center items-center w-full flex-col">
         <h1 className="text-3xl font-semibold text-gray-700">Collaborate with Others</h1>
         <p className="text-gray-600 mt-2">Find collaborators based on skills to work on projects.</p>
@@ -135,6 +136,7 @@ function Collaborate() {
           </nav>
         </div>
       </div>
+    </div>
     </>
   );
 }
