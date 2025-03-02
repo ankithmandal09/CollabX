@@ -56,16 +56,17 @@ const Register = () => {
       };
 
       // const response = await axios.post('https://hackathonfeb2025users-default-rtdb.asia-southeast1.firebasedatabase.app/.json', credentialsPayload);
-      const response = await axios.post(`http://localhost:8090/users`,credentialsPayload);
-      console.log(response);
+      const response = await axios.post(`http://localhost:8090/users/`,credentialsPayload);
+      console.log(response.data);
     } catch (error) {
-      console.error(error);
+      console.error(error,"credentialls error");
     }
   };
 
   const saveFormData = async () => {
     try {
       const formPayload = {
+        username: credentials.username,
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
@@ -81,14 +82,18 @@ const Register = () => {
       const response = await axios.post(`http://localhost:8090/profiles/${credentials.username}`,formPayload);
       console.log(response);
     } catch (error) {
-      console.error(error);
+      console.error(error,"form details error");
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    saveCredentials();
-    saveFormData();
+    try {
+      await saveCredentials();
+      await saveFormData();
+    } catch (error) {
+      console.error("Error in saving credentials or form data:", error);
+    }
   };
 
   return (
