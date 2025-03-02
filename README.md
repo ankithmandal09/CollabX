@@ -4,8 +4,8 @@
 **CollabX** is a collaborative platform where users can post their ideas, comment on posts, share skills, and collaborate with others. It is designed to bring together like-minded individuals to work on innovative projects and build a strong professional network.
 
 ## Deployed App
-[Live Demo](collaabx-taffy-2a2cf9.netlify.app)
-
+- Frontend Deployment link - https://collaabx-taffy-2a2cf9.netlify.app
+- Backend Deployment link - https://collabx-1.onrender.com
 
 ## Features
 - **Post Ideas**: Users can share their project ideas and receive feedback.
