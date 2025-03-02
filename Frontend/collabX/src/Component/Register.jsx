@@ -55,7 +55,8 @@ const Register = () => {
         password: credentials.password
       };
 
-      const response = await axios.post('https://hackathonfeb2025users-default-rtdb.asia-southeast1.firebasedatabase.app/.json', credentialsPayload);
+      // const response = await axios.post('https://hackathonfeb2025users-default-rtdb.asia-southeast1.firebasedatabase.app/.json', credentialsPayload);
+      const response = await axios.post(`http://localhost:8090/users`,credentialsPayload);
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -76,8 +77,8 @@ const Register = () => {
         skills: formData.skills
       };
 
-      const response = await axios.post('https://hackathon-form-data-default-rtdb.asia-southeast1.firebasedatabase.app/.json', formPayload);
-      // const response = await axios.post(`https://github.com/ankithmandal09/CollabX/blob/bharathraj/Backend/routes/profiles.route.js/${formData.username}`,formPayload);
+      // const response = await axios.post('https://hackathon-form-data-default-rtdb.asia-southeast1.firebasedatabase.app/.json', formPayload);
+      const response = await axios.post(`http://localhost:8090/profiles/${credentials.username}`,formPayload);
       console.log(response);
     } catch (error) {
       console.error(error);
