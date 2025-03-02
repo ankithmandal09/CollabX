@@ -14,9 +14,14 @@ const PORT = process.env.PORT;
 const app = express();
 
 app.use(express.json());
+// app.use(cors({
+//     "origin": "*",
+//     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE"
+// }));
+
 app.use(cors({
-    "origin": "*",
-    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE"
+  origin: 'http://localhost:5173', // or your frontend's domain
+  credentials: true
 }));
 app.use(helmet());
 
