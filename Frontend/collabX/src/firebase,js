@@ -1,0 +1,16 @@
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB1uUMxnt_GRx6cIc7Yb7weBWxniw6qBaI",
+  authDomain: "collabx-d8cb6.firebaseapp.com",
+  databaseURL: "https://collabx-d8cb6-default-rtdb.firebaseio.com",
+  projectId: "collabx-d8cb6",
+  storageBucket: "collabx-d8cb6.firebasestorage.app",
+  messagingSenderId: "964258420952",
+  appId: "1:964258420952:web:84705c0f6b8077b34c1fad",
+};
+
+const app = initializeApp(firebaseConfig);
+export const storage = getStorage(app);
+export default app;
